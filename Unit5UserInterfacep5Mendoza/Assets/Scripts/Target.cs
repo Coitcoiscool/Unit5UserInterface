@@ -15,8 +15,11 @@ public class Target : MonoBehaviour
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
+        
         targetRb.AddForce (RandomForce (), ForceMode.Impulse);
-        targetRb.AddTorque(Random.Range(-minSpeed,maxSpeed),Random.Range(-maxTorque,maxTorque), Random.Range(-maxTorque,maxTorque), ForceMode.Impulse);
+        
+        targetRb.AddTorque(RandomTorque() Speed,maxSpeed),Random.Range(-maxTorque,maxTorque), Random.Range(-maxTorque,maxTorque), ForceMode.Impulse);
+       
         transform.position = new Vector3(Random.Range(-xRange, xRange), ySpawnPos);
     }
 
@@ -35,5 +38,9 @@ public class Target : MonoBehaviour
     {
         return Random.Range(-maxTorque, maxTorque);
     }
+    Vector3 RandomSpawnPos()
+    {
+       return new Vector3(Random.Range(-xRange, xRange), ySpawnPos);
+    } 
 }
 
